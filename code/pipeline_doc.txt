@@ -1,0 +1,39 @@
+Pipelines differ in channel sets.
+
+Pipeline 1 - sparse set
+    >['C', 'CP', 'P', 'PO', 'O'] & [1 , 2, 3, 4]<
+    13 channels:
+    source: f"sub-{subject}_task-{task}_p3_posteriorset_sparse.npz"
+    Features:
+        file_path_features = os.path.join(classifier_dir, "p300", f"sub-{subject}", "posteriorset_sparse")
+            join(file_path_features, f'sub-{subject}_p3_features.npz')
+            join(file_path_features, f'sub-{subject}_p3_labels.npz')    
+        
+Pipeline 2 - sub-set
+    >['C', 'CP', 'P', 'PO', 'O'] & [1 , 2, 3, 4, 5, 6]<
+    Sub-set of central > occipital electrodes, 23 channels
+    Source:
+        f"sub-{subject}_task-{task}_p3_posteriorset.npz"
+    Features: 
+        file_path_features = os.path.join(classifier_dir, "p300", f"sub-{subject}", "posterior_medial")
+            join(file_path_features, f'sub-{subject}_p3_features.npz')
+            join(file_path_features, f'sub-{subject}_p3_labels.npz')
+
+Pipeline 3 - Hubner Replication
+    [
+        "F7", "F3", "Fz", "F4", "F8", "FC1", "FC2", "FC5",
+        "FC6", "FCz", "T7", "C3","Cz", "C4", "T8", "CP1",
+        "CP2", "CP5", "CP6", 'CPz',"P7", "P3", "Pz", "P4", 
+        "P8", "Oz", "O1", "O2"
+    ]
+    No LDA priors
+    TimeSeriesSplit
+    
+    Replication of Hubner, 29 channels, 10-10 span
+    frontal > occipital
+    Source:
+        f"sub-{subject}_task-{task}_p3_fullset.npz
+    Features:
+        file_path_features = os.path.join(classifier_dir, "p300", f"sub-{subject}", "fullset")
+            join(file_path_features, f'sub-{subject}_p3_features.npz')
+            join(file_path_features, f'sub-{subject}_p3_labels.npz')    

@@ -1,0 +1,52 @@
+
+- **Top Layers (Manual Setup):**
+  - **`root`**, **`data`**, **`experiment`**, and **`analysis`** need to be created manually.
+  
+- **Experiment Subdirectories:**
+  - **`files`**: Contains raw experiment files.
+  - **`sourcedata/subj`**: Houses subject-specific untouched raw data.
+  - **`derivatives`**: Holds processed outputs with further subdivisions:
+    - **`preprocessed`**: For initial preprocessing outputs (e.g., alpha, p300, cvep, raw).
+    - **`features`**: Contains feature matrices derived from the preprocessed data.
+  
+- **Analysis Subdirectories:**
+  - **`raw`**: For analyses performed directly on raw data (timeseries, PSD, rejection maps).
+  - **`alpha` / `p300`**: Feature-specific analysis directories with both decoding results (curves and summaries) and related plots.
+  - **`analysis_cvep_dir`**: A dedicated folder for CVEP (Code-modulated Visual Evoked Potential) analyses.
+
+root/
+├── data/
+│   ├── experiment/
+│   │   ├── files/
+│   │   ├── sourcedata/
+│   │   │   └── subj/
+│   │   └── derivatives/
+│   │       ├── preprocessed/
+│   │       │   ├── alpha/
+│   │       │   ├── p300/
+│   │       │   ├── cvep/
+│   │       │   └── raw/
+│   │       └── features/
+│   │           ├── alpha/
+│   │           ├── p300/
+│   │           └── cvep/
+│   └── analysis/
+│       ├── raw/
+│       │   ├── timeseries/
+│       │   ├── psd/
+│       │   └── Rejection Map/
+│       ├── alpha/
+│       │   ├── decoding_results/
+│       │   │   ├── decoding_curves/
+│       │   │   └── decoding_simple/
+│       │   └── plots/
+│       │       ├── decoding/
+│       │       └── features/
+│       ├── p300/
+│       │   ├── decoding_data/
+│       │   │   ├── decoding_curve/
+│       │   │   └── decoding_simple/
+│       │   └── plots/
+│       │       ├── decoding/
+│       │       └── features/
+│       └── analysis_cvep_dir/
